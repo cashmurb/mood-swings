@@ -84,13 +84,13 @@ python main.py
 ```
 mood-swings/
 ├── src/
-│   ├── main.py                     # Loop, keys, orchestration
-│   ├── detector.py                 # Face detection + crop
-│   ├── expressions.py              # Blendshapes, calibration, classification
-│   ├── overlay.py                  # Image compositing
+│   ├── main.py                     
+│   ├── detector.py                
+│   ├── expressions.py              
+│   ├── overlay.py                  
 │   ├── models/
-│   │   └── face_landmarker.task    # Auto-downloaded on first run
-│   ├── moods/                      # Cat reaction images
+│   │   └── face_landmarker.task   
+│   ├── moods/                  
 │   │   ├── angry.jpg
 │   │   ├── anxious.jpg
 │   │   ├── confused.jpg
@@ -98,44 +98,13 @@ mood-swings/
 │   │   ├── help.jpg
 │   │   ├── love.jpg
 │   │   └── smug.jpg
-│   └── captures/                   # Saved screenshots
+│   └── captures/                  
 ├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
 ---
-
-## Customization
-
-### Overlay duration
-
-In `main.py`:
-```python
-OVERLAY_DURATION = 0.8   # seconds
-```
-
-### Add a new pose
-
-In `expressions.py`, add a rule to `classify()`:
-```python
-if z.get("noseSneerLeft", 0) > 3 and z.get("noseSneerRight", 0) > 3:
-    return "disgusted"
-```
-
-Then map it in `POSE_TO_CAT`:
-```python
-"disgusted": "moods/disgust.jpg",
-```
-
-And add the matching image to `moods/`.
-
-### Sensitivity
-
-Lower the thresholds in `classify()` for more sensitive detection, raise them for stricter.
-
----
-
 
 ## Credits
 
