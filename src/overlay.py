@@ -1,4 +1,3 @@
-# drawing box + emoji
 import cv2
 import numpy as np
 

@@ -1,5 +1,3 @@
-# face/cat detection wrapper 
-
 import cv2
 import mediapipe as mp
 
