@@ -78,23 +78,24 @@ class Calibrator:
 
 # rules: z-scores -> pose name 
 def classify(blendshapes, means, stds):
-    """Classify the current blendshapes into a pose name based on z-scores."""
-    
     z = {k: (blendshapes[k] - means.get(k, 0.0)) / stds.get(k, 0.05)
-        for k in blendshapes}
-    
-    # rules checked in priority order
-    if z["mouthSmileLeft"] > 3 and z["mouthSmileRight"] > 3:
+         for k in blendshapes}
+
+    def zget(name):
+        return z.get(name, 0.0)
+
+    if zget("mouthSmileLeft") > 3 and zget("mouthSmileRight") > 3:
         return "happy"
-    if z["jawOpen"] > 4 and z["browInnerUp"] > 2:
+    if zget("jawOpen") > 4 and zget("browInnerUp") > 2:
         return "surprised"
-    if z["mouthFrownLeft"] > 3 and z["mouthFrownRight"] > 3:
+    if zget("mouthFrownLeft") > 3 and zget("mouthFrownRight") > 3:
         return "sad"
-    if z["browDownLeft"] > 3 and z["browDownRight"] > 3:
+    if zget("browDownLeft") > 3 and zget("browDownRight") > 3:
         return "angry"
-    if z["jawOpen"] > 3 and z["eyeBlinkLeft"] > 3 and z["eyeBlinkRight"] > 3:
+    if zget("jawOpen") > 3 and zget("eyeBlinkLeft") > 3 and zget("eyeBlinkRight") > 3:
         return "sleepy"
-    return "neutral"
+
+    return "neutral"  
 
 POSE_TO_CAT ={
     "happy": "moods/love.jpg",
@@ -102,5 +103,4 @@ POSE_TO_CAT ={
     "angry": "moods/angry.jpg",
     "sad": "moods/anxious.jpg",
     "sleepy": "moods/help.jpg",
-    "neutral": "moods/smug.jpg",
 }
