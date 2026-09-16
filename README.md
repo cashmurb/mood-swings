@@ -1,6 +1,6 @@
 # 🐱 Mood Swings
 
-I rebuilt my webcam feed so my face turns into a cat when I make an expression. It works in Zoom, Discord, and Snapchat Desktop.
+I rebuilt my webcam feed so my face turns into a cat when I make an expression. It works in Zoom, Discord, etc.  
 ---
 
 ## What it does
