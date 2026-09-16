@@ -1,7 +1,6 @@
 # 🐱 Mood Swings
 
-A real-time webcam app that reads your facial expression and overlays a matching cat reaction image. Built with MediaPipe Face Landmarker and OpenCV.
-
+I rebuilt my webcam feed so my face turns into a cat when I make an expression. It works in Zoom, Discord, and Snapchat Desktop.
 ---
 
 ## What it does
