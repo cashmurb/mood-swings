@@ -6,6 +6,7 @@ import mediapipe as mp
 from mediapipe.tasks import python as mp_python
 from mediapipe.tasks.python import vision as mp_vision
 
+MOODS_DIR = os.path.join(_HERE, "moods")
 _HERE = os.path.dirname(os.path.abspath(__file__))
 MODELS_DIR = os.path.join(_HERE, "models")
 MODEL_PATH = os.path.join(MODELS_DIR, "face_landmarker.task")
@@ -97,10 +98,10 @@ def classify(blendshapes, means, stds):
 
     return "neutral"  
 
-POSE_TO_CAT ={
-    "happy": "moods/love.jpg",
-    "surprised": "moods/disgust.jpg",
-    "angry": "moods/angry.jpg",
-    "sad": "moods/anxious.jpg",
-    "sleepy": "moods/help.jpg",
+POSE_TO_CAT = {
+    "happy": os.path.join(MOODS_DIR, "love.jpg"),
+    "surprised": os.path.join(MOODS_DIR, "help.jpg"),
+    "angry": os.path.join(MOODS_DIR, "angry.jpg"),
+    "sad": os.path.join(MOODS_DIR, "disgust.jpg"),
+    "sleepy": os.path.join(MOODS_DIR, "help.jpg"),
 }

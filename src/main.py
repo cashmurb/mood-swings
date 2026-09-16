@@ -4,7 +4,7 @@ import os
 import time
 import pyvirtualcam
 from datetime import datetime
-from detector import detect_human_face, crop
+from detector import detect_human_face
 from expressions import get_blendshapes, Calibrator, classify, POSE_TO_CAT
 from overlay import overlay_image
 
@@ -59,7 +59,7 @@ while True:
                 calibrating = False
                 print("Calibration done.")
 
-        cv2.imshow("cat mood detector", frame)
+        cv2.imshow("mood swings", frame)
 
         cam.send(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
         cam.sleep_until_next_frame()
